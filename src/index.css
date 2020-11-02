@@ -267,7 +267,7 @@ body {
   font-size: 14px;
   font-weight: 300;
   line-height: 1.5;
-  background: #1e202b;
+  background: #25274d;
 }
 
 h1,
@@ -1713,7 +1713,7 @@ form input[type="reset"] {
 .find-location input[type="text"] {
   width: 100%;
   padding: 20px 50px 20px 20px;
-  background: #1e202b;
+  background: #464866;
   color: white;
 }
 .find-location input[type="submit"] {
@@ -1726,7 +1726,7 @@ form input[type="reset"] {
 
 .forecast-container {
   width: 100%;
-  background: #323544;
+  background: #464866;
   display: table;
   table-layout: fixed;
   width: 100%;
@@ -1740,7 +1740,7 @@ form input[type="reset"] {
   vertical-align: top;
 }
 .forecast-container .forecast:nth-child(even) {
-  background-color: #262936;
+  background-color: #2a2c4c;
 }
 @media screen and (max-width: 990px) {
   .forecast-container .forecast {
@@ -2249,7 +2249,7 @@ form input[type="reset"] {
   * Footer Styles
   */
 .site-footer {
-  background: #262936;
+  background: #25274d;
   padding: 50px 0;
 }
 .site-footer .subscribe-form {
@@ -2258,7 +2258,7 @@ form input[type="reset"] {
 }
 .site-footer .subscribe-form input[type="text"] {
   padding: 20px 100px 20px 20px;
-  background: #1e202b;
+  background: #464866;
   width: 100%;
   color: white;
 }
@@ -2273,7 +2273,7 @@ form input[type="reset"] {
   height: 40px;
   display: inline-block;
   border-radius: 50%;
-  background: #1e202b;
+  background: #464866;
   color: #009ad8;
   text-align: center;
   line-height: 2;
@@ -2284,5 +2284,9 @@ form input[type="reset"] {
 }
 .site-footer .social-links a:hover {
   background: #009ad8;
+  color: white;
+}
+
+::placeholder {
   color: white;
 }

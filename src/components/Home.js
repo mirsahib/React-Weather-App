@@ -1,7 +1,7 @@
 import React from "react";
 import ForcastTable from "./ForcastTable";
 
-function Home() {
+function Home(props) {
   return (
     <div className="forecast-table">
       <div className="container">

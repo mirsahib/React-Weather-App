@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "./components/header";
+import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import Home from "./components/Home";
 import Footer from "./components/footer";
@@ -16,8 +16,8 @@ function App() {
   //function to perfom api request
   const handleSubmit = (e) => {
     e.preventDefault();
-    setCityName("");
     getWeatherData();
+    setCityName("");
   };
 
   const getWeatherData = async () => {
@@ -26,22 +26,28 @@ function App() {
       base: "https://api.openweathermap.org/data/2.5/",
       key: process.env.REACT_APP_API_KEY,
     };
-    // const data = await Axios.get(
-    //   `${api.base}forecast/?q=${cityName}&units=metric&appid=${api.key}`
-    // );
-    const data = JSON.parse(localStorage.getItem("weather-data"));
-    let list = data.data.list;
-    let timestamp = [];
-    let newList = [];
-    list.forEach((e) => {
-      const time_txt = e.dt_txt.split(" ")[0];
-      if (!timestamp.includes(time_txt)) {
-        timestamp.push(time_txt);
-        newList.push(e);
-      }
-    });
-    data.data.list = newList;
-    setWeatherData(data);
+    await Axios.get(
+      `${api.base}forecast/?q=${cityName
+        .split(" ")
+        .join("+")}&units=metric&appid=${api.key}`
+    )
+      .then((res) => {
+        let list = res.data.list;
+        let timestamp = [];
+        let newList = [];
+        list.forEach((e) => {
+          const time_txt = e.dt_txt.split(" ")[0];
+          if (!timestamp.includes(time_txt)) {
+            timestamp.push(time_txt);
+            newList.push(e);
+          }
+        });
+        res.data.list = newList;
+        setWeatherData(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

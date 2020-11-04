@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../images/logo.png";
 
-function header() {
+function Header() {
   return (
     <div className="site-header">
       <div className="container">
@@ -17,4 +17,4 @@ function header() {
   );
 }
 
-export default header;
+export default Header;

@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
 import ForcastTable from "./ForcastTable";
+import umberella from "../images/icon-umberella.png";
+import windBlow from "../images/icon-wind.png";
+import windDirection from "../images/icon-compass.png";
 
 function Home(props) {
   const [state, setState] = useState({
     city: "",
-    weekday: "",
     date: "",
+    weekday: "",
     month: "",
     temp: "",
     wind: "",
     rain: "",
     wind_direction: "",
   });
-  const extractData = () => {
+  useEffect(() => {
+    //extractData();
     let city = props.weatherData.data.city.name;
     let timeStamp = new Date(props.weatherData.data.list[0].dt_txt);
     let date = timeStamp.getDate();
@@ -39,7 +43,7 @@ function Home(props) {
       "Nov",
       "Dec",
     ][timeStamp.getMonth()];
-    let temp = props.weatherData.data.list[0].main.temp;
+    let temp = props.weatherData.data.list[0].main.temp.toFixed(1);
     let wind = (
       props.weatherData.data.list[0].wind.speed *
       (3600 / 1000)
@@ -74,12 +78,21 @@ function Home(props) {
     console.log(
       `city ${city},weekday ${weekday},date ${date},month ${month},rain ${rain},temp ${temp},wind ${wind},wind_dir ${wind_direction}`
     );
-    setState({ city, weekday, date, month, rain, temp, wind, wind_direction });
-    console.log(state);
-  };
-  useEffect(() => {
-    extractData();
-  }, []);
+    let newState = {
+      city,
+      date,
+      weekday,
+      month,
+      temp,
+      wind,
+      rain,
+      wind_direction,
+    };
+    if (state.city !== newState.city) {
+      setState(newState);
+    }
+    console.log("component updated");
+  }, [props.weatherData.data.city.name, props.weatherData.data.list, state]);
 
   return (
     <div className="forecast-table">
@@ -87,34 +100,37 @@ function Home(props) {
         <div className="forecast-container">
           <div className="today forecast">
             <div className="forecast-header">
-              <div className="day">Monday</div>
-              <div className="date">6 Oct</div>
+              <div className="day">{state.weekday}</div>
+              <div className="date">{state.date + " " + state.month}</div>
             </div>
             <div className="forecast-content">
-              <div className="location">New York</div>
+              <div className="location">{state.city}</div>
               <div className="degree">
                 <div className="num">
-                  23<sup>o</sup>C
+                  {state.temp}
+                  <sup>o</sup>C
                 </div>
                 <div className="forecast-icon">
                   <img src="images/icons/icon-1.svg" alt="" width="90" />
                 </div>
               </div>
               <span>
-                <img src="images/icon-umberella.png" alt="" />
-                20%
+                <img src={umberella} alt="" />
+                {state.rain !== "" ? state.rain + "%" : "0%"}
               </span>
               <span>
-                <img src="images/icon-wind.png" alt="" />
-                18km/h
+                <img src={windBlow} alt="" />
+                {state.wind + "km/h"}
               </span>
               <span>
-                <img src="images/icon-compass.png" alt="" />
-                East
+                <img src={windDirection} alt="" />
+                {state.wind_direction}
               </span>
             </div>
           </div>
-          <ForcastTable />
+          <ForcastTable
+            forcastTable={props.weatherData.data.list.slice(1, 6)}
+          />
         </div>
       </div>
     </div>

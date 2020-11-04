@@ -24,7 +24,7 @@ function App() {
     console.log("getWeather is called");
     const api = {
       base: "https://api.openweathermap.org/data/2.5/",
-      key: process.env.REACT_APP_API_KEY,
+      key: "d2aaa61c9a54a1e46b15f39eca1510c0",
     };
     await Axios.get(
       `${api.base}forecast/?q=${cityName

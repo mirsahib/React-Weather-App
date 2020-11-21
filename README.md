@@ -8,7 +8,7 @@
 
 ## Description
 
-A Weather Application build using React frontend framwework and openweather api.
+A Weather Application build using React frontend framwework and [openweather api](https://openweathermap.org/forecast5).
 
 The project is also hosted on [Netlify](https://react-weather-app-102.netlify.app/)
 
@@ -30,4 +30,10 @@ Run it
 
 ```bash
 $ yarn start
+```
+
+If you want to use your own api key than rename `.env.example` to `.env` and add your api key
+
+```
+REACT_APP_API_KEY=<your api key>
 ```

@@ -1,5 +1,6 @@
 # React Weather App
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f6a88e1f-feeb-4fa3-9376-7be2c0833f09/deploy-status)](https://app.netlify.com/sites/react-weather-app-102/deploys)
 ![Current Issues](https://img.shields.io/github/issues/mirsahib/React-Weather-App)
 ![GitHub Forks](https://img.shields.io/github/forks/mirsahib/React-Weather-App)
 ![GitHub stars](https://img.shields.io/github/stars/mirsahib/React-Weather-App)

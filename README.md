@@ -4,7 +4,7 @@
 ![Current Issues](https://img.shields.io/github/issues/mirsahib/React-Weather-App)
 ![GitHub Forks](https://img.shields.io/github/forks/mirsahib/React-Weather-App)
 ![GitHub stars](https://img.shields.io/github/stars/mirsahib/React-Weather-App)
-![GitHub license](https://img.shields.io/github/license/mirsahib/React-Weather-App)
+![GitHub license](https://img.shields.io/github/license/mirsahib/React-Weather-App?style=flat-square)
 
 ## Description
 
